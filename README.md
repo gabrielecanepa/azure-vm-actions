@@ -9,10 +9,10 @@ This repository contains a collection of GitHub Actions for working with Azure v
 
 ### Service principal
 
-To create a service principal and configure its access to Azure resources, open a local or cloud shell and run the following command specifying the virtual machine subscription ID and resource group name:
+To create a service principal and configure its access to Azure resources, open a local or cloud shell and run the following command specifying a service principal name, the virtual machine subscription ID and resource group name:
 
 ```sh
-az ad sp create-for-rbac --name "some-name-here" --role contributor \
+az ad sp create-for-rbac --name "<SERVICE_PRINCIPAL_NAME>" --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> \
     --sdk-auth
 ```
@@ -21,10 +21,10 @@ The response will be a JSON object with the following structure:
 
 ```json
 {
-  "clientId": "CLIENT_ID",
-  "clientSecret": "CLIENT_SECRET",
-  "subscriptionId": "SUBSCRIPTION_ID",
-  "tenantId": "TENANT_ID",
+  "clientId": "<CLIENT_ID>",
+  "clientSecret": "<CLIENT_SECRET>",
+  "subscriptionId": "<SUBSCRIPTION_ID>",
+  "tenantId": "<TENANT_ID>",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
   "activeDirectoryGraphResourceId": "https://graph.windows.net/",

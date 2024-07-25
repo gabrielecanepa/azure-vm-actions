@@ -1,4 +1,4 @@
-name: Power off virtual machine
+name: Stop virtual machine
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  power-off-vm:
+  stop-vm:
     runs-on: ubuntu-latest
     steps:
       - name: Azure Login

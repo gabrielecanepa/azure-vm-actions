@@ -1,7 +1,7 @@
 # Azure Virtual Machine Actions
 
 [![](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/start-vm.yml/badge.svg)](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/start-vm.yml)
-[![](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/power-off-vm.yml/badge.svg)](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/power-off-vm.yml)
+[![](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/stop-vm.yml/badge.svg)](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/stop-vm.yml)
 
 This repository contains a collection of GitHub Actions for working with Azure Virtual Machines.
 
@@ -59,5 +59,5 @@ Once configured, you can run the following workflows using GitHub Actions.
 | Name | Description | Schedule | Trigger |
 | --- | --- | --- | --- |
 | [Start virtual machine](.github/workflows/stop-vm.yml) | Start a virtual machine | None | `workflow_dispatch` |
-| [Power off virtual machine](.github/workflows/power-off-vm.yml) | Power off and deallocate a virtual machine | Every day at midnight | `schedule`, `workflow_dispatch` |
+| [Stop virtual machine](.github/workflows/stop-vm.yml) | Stop (power off and deallocate) a virtual machine | Every day at midnight | `schedule`, `workflow_dispatch` |
 

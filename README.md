@@ -58,6 +58,6 @@ Once configured, you can run the following workflows using GitHub Actions.
 
 | Name | Description | Schedule | Trigger |
 | --- | --- | --- | --- |
-| [Start virtual machine](.github/workflows/stop-vm.yml) | Start a virtual machine | None | `workflow_dispatch` |
-| [Stop virtual machine](.github/workflows/stop-vm.yml) | Stop (power off and deallocate) a virtual machine | Every day at midnight | `schedule`, `workflow_dispatch` |
+| [Start VM](.github/workflows/stop-vm.yml) | Start a virtual machine | None | `workflow_dispatch` |
+| [Stop VM](.github/workflows/stop-vm.yml) | Stop (power off and deallocate) a virtual machine | Every day at midnight | `schedule`, `workflow_dispatch` |
 

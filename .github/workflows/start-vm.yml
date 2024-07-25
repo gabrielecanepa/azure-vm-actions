@@ -1,4 +1,4 @@
-name: Start virtual machine
+name: Start VM
 
 on: workflow_dispatch
 

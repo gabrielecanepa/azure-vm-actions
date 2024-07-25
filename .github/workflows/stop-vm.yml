@@ -1,4 +1,4 @@
-name: Stop virtual machine
+name: Stop VM
 
 on:
   workflow_dispatch:

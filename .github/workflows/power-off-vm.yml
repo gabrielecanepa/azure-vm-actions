@@ -1,0 +1,22 @@
+name: Power off virtual machine
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  power-off-vm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login
+        uses: Azure/login@v2
+        with:
+          creds: ${{ secrets.VM_CREDENTIALS }}
+      - name: Azure CLI Script
+        uses: azure/CLI@v2
+        with:
+          azcliversion: 2.30.0
+          inlineScript: |
+            az vm stop --resource-group ${{ secrets.VM_RESOURCE_GROUP }} --name ${{ secrets.VM_NAME }}
+            az vm deallocate --resource-group ${{ secrets.VM_RESOURCE_GROUP }} --name ${{ secrets.VM_NAME }}

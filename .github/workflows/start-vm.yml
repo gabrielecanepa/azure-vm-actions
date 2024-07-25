@@ -9,7 +9,7 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2
         with:
-          creds: ${{ secrets.VM_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Azure CLI Script
         uses: azure/CLI@v2
         with:

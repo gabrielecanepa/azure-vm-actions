@@ -3,23 +3,13 @@
 [![](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/start-vm.yml/badge.svg)](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/start-vm.yml)
 [![](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/stop-vm.yml/badge.svg)](https://github.com/gabrielecanepa/azure-vm-actions/actions/workflows/stop-vm.yml)
 
-This repository contains a collection of GitHub Actions for working with Azure Virtual Machines.
+This repository contains a collection of GitHub Actions for working with Azure virtual machines.
 
-## Authentication
+## Configuration
 
 ### Service principal
 
-When you select a virtual machine in the Azure portal, you will see a similar URL in the browser’s address bar:
-
-```
-https://portal.azure.com/#@domain.com/resource/subscriptions/
-<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Compute/
-virtualMachines/<VM_NAME>/overview
-```
-
-From this URL, extract the subscription ID, resource group and VM name.
-
-To get the full credentials, open a cloud shell in the Azure portal and run the following command:
+To create a service principal and configure its access to Azure resources, open a local or cloud shell and run the following command specifying the virtual machine subscription ID and resource group name:
 
 ```sh
 az ad sp create-for-rbac --name "some-name-here" --role contributor \
@@ -48,16 +38,16 @@ The response will be a JSON object with the following structure:
 
 Add the following secrets to your GitHub repository:
 
-- `VM_CREDENTIALS`: the JSON object from the previous step
-- `VM_NAME`: name of the virtual machine taken from the URL
-- `VM_RESOURCE_GROUP`: name of the resource group taken from the URL
+- `AZURE_CREDENTIALS`: the JSON object from the previous step
+- `VM_NAME`: name of the virtual machine
+- `VM_RESOURCE_GROUP`: name of the virtual machine resource group
 
 ## Usage
   
 Once configured, you can run the following workflows using GitHub Actions.
 
-| Name | Description | Schedule | Trigger |
-| --- | --- | --- | --- |
-| [Start VM](.github/workflows/stop-vm.yml) | Start a virtual machine | None | `workflow_dispatch` |
-| [Stop VM](.github/workflows/stop-vm.yml) | Stop (power off and deallocate) a virtual machine | Every day at midnight | `schedule`, `workflow_dispatch` |
+| Name                                      | Description                                       | Schedule                    | Trigger                         |
+| ----------------------------------------- | ------------------------------------------------- | --------------------------- | ------------------------------- |
+| [Start VM](.github/workflows/stop-vm.yml) | Start a virtual machine                           | None                        | `workflow_dispatch`             |
+| [Stop VM](.github/workflows/stop-vm.yml)  | Stop (power off and deallocate) a virtual machine | Every day at midnight (UTC) | `schedule`, `workflow_dispatch` |
 
